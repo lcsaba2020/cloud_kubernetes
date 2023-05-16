@@ -1,0 +1,18 @@
+install minikube for working with a local kubernetes cluster
+
+> kubectl version
+> kubectl config current-context (set to minikube)
+
+Namespaces:
+	> kubectl get ns
+
+	> kubectl create namespace seminar
+	> kubectl get ns
+
+	> kubectl describe ns seminar
+	> kubectl get -o yaml ns seminar
+  
+  > kubectl config set-context --current --namespace seminar 
+
+Creating a stateless application deployment
+  > kubectl create -f nginx-deployment.yaml
