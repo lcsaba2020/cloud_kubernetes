@@ -1,0 +1,5 @@
+deploy the database
+deploy the springboot-ws
+deploy the springboot-ws service
+kubectl port-forward svc/{your_service_name} {service-port}
+open http://yourapp:{service-port}/...
