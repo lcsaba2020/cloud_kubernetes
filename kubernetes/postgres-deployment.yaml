@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresdb
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: postgresdb
+  clusterIP: None
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresdb
+spec:
+  selector:
+    matchLabels:
+      app: postgresdb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: postgresdb
+    spec:
+      containers:
+      - image: postgres
+        name: postgresdb
+        env:
+          # Use secret in real usage
+        - name: POSTGRES_DB
+          value: employeedb
+        - name: POSTGRES_USER
+          value: compose_postgres
+        - name: POSTGRES_PASSWORD
+          value: compose_postgres
+
+        ports:
+        - containerPort: 5432
+          name: postgres

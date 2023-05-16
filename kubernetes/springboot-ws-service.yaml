@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-ws-app-clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: springboot-ws-app
+  ports:
+    - name: http
+      protocol: TCP
+      targetPort: sprbt-app-port
+      port: 58091

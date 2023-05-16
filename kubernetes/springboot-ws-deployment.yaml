@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-ws-app
+  labels:
+    app: springboot-ws-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springboot-ws-app
+  template:
+    metadata:
+      labels:
+        app: springboot-ws-app
+    spec:
+      containers:
+        - name: springboot-restful-webservices
+          image: ludeschc/springboot-rest-webservices:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: sprbt-app-port
