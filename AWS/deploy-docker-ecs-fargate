@@ -1,4 +1,8 @@
 > docker context create ecs myecscontext
+ Create a Docker context using:  [Use arrows to move, type to filter]
+  An existing AWS profile
+  AWS secret and token credentials
+ choose -> AWS environment variables
 create access keys for user IAM for AWS services (ECS)
 > aws configure
 > docker context use myecscontext
