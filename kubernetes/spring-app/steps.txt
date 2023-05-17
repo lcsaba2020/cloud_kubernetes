@@ -1,5 +1,27 @@
-deploy the database
-deploy the springboot-ws
-deploy the springboot-ws service
-kubectl port-forward svc/{your_service_name} {service-port}
-open http://yourapp:{service-port}/...
+Simple service deployment
+    deploy the database
+    deploy the springboot-ws
+    deploy the springboot-ws service
+    > kubectl port-forward svc/{your_service_name} {service-port}
+    open http://yourapp:{service-port}/...
+
+Nodeport deployment
+    Expose your service : 
+    > kubectl expose deployment {your_service_name} --port={service-port} --type=NodePort
+    Verify the Service is created and is available on the node port:
+    > kubectl get service {your_service_name}
+    > minikube ip 
+    > minikube service {your_service_name} --url 
+        - access your ws on the displayed url
+
+
+Ingress deployment
+  Enable the NGINX Ingress controller by running the following command:
+  > minikube addons enable ingress
+  Verify that the NGINX Ingress controller is running:
+    > kubectl get pods -n ingress-nginx
+  Create the Ingress object:
+  > kubectl apply -f ingress-spring-ws.yml
+  Add the minikube ip - host name mapping in /etc/hosts for DNS resolving
+  Access your ws using the hostname as the url
+  
