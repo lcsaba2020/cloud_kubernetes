@@ -27,8 +27,8 @@ Replicasets
   > kubectl get pods
   
 Creating a stateless application deployment
-  > kubectl create -f nginx-deployment.yaml
-  > kubectl create -f nginx-service.yaml
+  > kubectl create -f stateless/nginx-deployment.yaml
+  > kubectl create -f stateless/nginx-service.yaml
 Check the created resources:
 	> kubectl get svc
 	> kubectl get pods
