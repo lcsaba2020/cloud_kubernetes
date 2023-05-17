@@ -1,5 +1,5 @@
-docker context create ecs myecscontext
+> docker context create ecs myecscontext
 create access keys for user IAM for AWS services (ECS)
 aws configure for these keys
-docker context use myecscontext
-docker compose up
+> docker context use myecscontext
+> docker compose up
