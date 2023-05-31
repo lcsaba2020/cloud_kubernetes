@@ -23,6 +23,7 @@ Pods:
 Replicasets
   > kubectl create -f nginx-replicaset.yaml
   > kubectl get pods
+  > kubectl delete pods -l app=my-app
   > kubectl delete replicaset nginx-rs
   > kubectl get pods
   
