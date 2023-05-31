@@ -30,6 +30,7 @@ Replicasets
 Creating a stateless application deployment
   > kubectl create -f stateless/nginx-deployment.yaml
   > kubectl create -f stateless/nginx-service.yaml
+  > kubectl port-forward svc/nginx-clusterip 8080:56000
 Check the created resources:
 	> kubectl get svc
 	> kubectl get pods
